@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
+
+execute_before_dh_auto_test:
+	cp mounts.testfile _build/src/github.com/artyom/mtab
